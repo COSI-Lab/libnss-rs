@@ -2,7 +2,11 @@ use crate::interop::{CBuffer, Response, ToC};
 use std::mem;
 use std::net::{IpAddr, Ipv4Addr, Ipv6Addr};
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 #[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Host {
     pub name: String,
     pub aliases: Vec<String>,
@@ -17,6 +21,7 @@ pub enum AddressFamily {
 }
 
 #[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum Addresses {
     V4(Vec<Ipv4Addr>),
     V6(Vec<Ipv6Addr>),

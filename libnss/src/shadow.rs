@@ -1,6 +1,10 @@
 use crate::interop::{CBuffer, Response, ToC};
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 #[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Shadow {
     pub name: String,
     pub passwd: String,

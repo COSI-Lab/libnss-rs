@@ -1,5 +1,6 @@
 use crate::interop::{CBuffer, Response, ToC};
 
+#[derive(Debug)]
 pub struct Passwd {
     pub name: String,
     pub passwd: String,

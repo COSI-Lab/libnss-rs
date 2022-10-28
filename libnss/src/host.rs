@@ -2,6 +2,7 @@ use crate::interop::{CBuffer, Response, ToC};
 use std::mem;
 use std::net::{IpAddr, Ipv4Addr, Ipv6Addr};
 
+#[derive(Debug)]
 pub struct Host {
     pub name: String,
     pub aliases: Vec<String>,
@@ -15,6 +16,7 @@ pub enum AddressFamily {
     Unspecified,
 }
 
+#[derive(Debug)]
 pub enum Addresses {
     V4(Vec<Ipv4Addr>),
     V6(Vec<Ipv6Addr>),
